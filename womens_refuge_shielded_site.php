@@ -3,16 +3,16 @@
 /**
  * Women's Refuge Shielded Site
  *
- * @link              http://example.com
+ * @link              https://github.com/PhilTanner/womens_refuge_shielded_site
  * @since             0.0.1
  * @package           WRSS
  * @copyright         2021 Phil Tanner
  *
  * @wordpress-plugin
  * Plugin Name:       Women's Refuge Shielded Site
- * Plugin URI:        http://example.com/womens_refuge_shielded_site-uri/
+ * Plugin URI:        https://github.com/PhilTanner/womens_refuge_shielded_site
  * Description:       Add the NZ Women's Refuge Shielded Site button to your site using the [womens_refuge_shield] shortcode or widget.
- * Version:           0.0.1
+ * Version:           1.0.1
  * Author:            Phil Tanner
  * Author URI:        https://twitter.com/Phil_Tanner
  * License:           Apache-2.0
@@ -30,7 +30,7 @@
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
  *  Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
+ *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
@@ -117,7 +117,8 @@ function WRSS_shield( $atts = array(), $content = null, $tag = '' ){
 	$output .= '		height="'.$h.'" '."\n";
 	$output .= '		width="'.$w.'" '."\n";
 	$output .= '		style="cursor: pointer; margin: 0px auto; display: inherit;" />'."\n";
-	$output .= '	<script defer="defer" src="https://staticcdn.co.nz/embed/embed.js"></script>'."\n";
+	//$output .= '	<script defer="defer" src="https://staticcdn.co.nz/embed/embed.js"></script>'."\n";
+
 	$output .= '	<script>'."\n";
 	$output .= '		(function () {'."\n";
 	$output .= '			window.onload = function(){'."\n";
@@ -129,6 +130,8 @@ function WRSS_shield( $atts = array(), $content = null, $tag = '' ){
 	$output .= '			}'."\n";
 	$output .= '		})();'."\n";
 	$output .= '	</script>'."\n";
+
+
 	$output .= '</div>'."\n";
 
 	// Pass it back for inclusion
@@ -136,6 +139,38 @@ function WRSS_shield( $atts = array(), $content = null, $tag = '' ){
 }
 add_shortcode( 'womens_refuge_shield', 'WRSS_shield' );
 
+
+/**
+ * WordPress approval process wanted the script moved to enqueue - so we're including
+ * here to meet those requirements - it means we're ALWAYS including it, even if
+ * the icon isn't used - we'll just have to assume that if they've got the plugin,
+ * and it's activated, they are using it somewhere.
+ *
+ * @since    1.0.1
+ */
+function wrss_embed_external_script() {
+	//wp_register_script( 'wrss_external_embed', );
+	wp_enqueue_script( 'wrss_external_embed', 'https://staticcdn.co.nz/embed/embed.js'  );
+}
+add_action( 'wp_enqueue_scripts', 'wrss_embed_external_script' );
+
+/**
+ * Add some additional links underneath our plugin description,
+ * linking back to the orginal websites for more information
+ *
+ * @since    1.0.1
+ */
+function wrss_defer_embed_script($tag, $handle) {
+	// We want to defer our embed, as it's unlikely the user will ever click the
+	// button before the page has loaded, and there's no point slowing the rendering
+	// for it.
+	if( $handle == 'wrss_external_embed' ){
+		return str_ireplace(' src', ' defer src', $tag);
+	}
+	// Not our tag, so we'll return it as we found it.
+	return $tag;
+}
+add_filter('script_loader_tag', 'wrss_defer_embed_script', 10, 2);
 
 /**
  * Add some additional links underneath our plugin description,
