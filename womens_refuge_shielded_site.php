@@ -12,7 +12,7 @@
  * Plugin Name:       Women's Refuge Shielded Site
  * Plugin URI:        https://github.com/PhilTanner/womens_refuge_shielded_site
  * Description:       Add the NZ Women's Refuge Shielded Site button to your site using the [womens_refuge_shield] shortcode or widget.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Phil Tanner
  * Author URI:        https://twitter.com/Phil_Tanner
  * License:           Apache-2.0
@@ -43,9 +43,9 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
+ * Current plugin version using SemVer - https://semver.org
+ *
+ * @since    0.0.1
  */
 $plugin_data = get_file_data(__FILE__, array('Version' => 'Version') );
 define( 'WRSS_VERSION',     $plugin_data['Version'] );
@@ -72,7 +72,7 @@ require_once( 'includes'.DIRECTORY_SEPARATOR.'class-wrss_widget.php' );
  */
 function WRSS_default_args(){
 	return array(
-		'icon_size'  => 'large', // Accepts 'large','small','custom'
+		'icon_size'  => 'large', // Accepts 'large','small','button'
 		'modal_id'   => 'modal',
 		'element_id' => 'shielded-logo',
 	);
@@ -92,21 +92,22 @@ function WRSS_shield( $atts = array(), $content = null, $tag = '' ){
 		$tag
 	);
 
-	// We're only going to accept 'large'/'small'/'custom'
+	// We're only going to accept 'large'/'small'/'button'
 	switch( $atts['icon_size'] ){
-		case 'large':
+		case 'button':
 			$w = '60';
-			$h = '79.5';
+			$h = '60';
 			break;
 		case 'small':
 			$w = '60';
 			$h = '61';
 			break;
-		// We're going to fall back to this one
+		// We're going to fall back to this one, which is our default if nothing assigned anyway.
 		default:
-			$atts['icon_size'] = 'custom';
+			$atts['icon_size'] = 'large';
 			$w = '60';
-			$h = '60';
+			$h = '79.5';
+			break;
 	}
 
 	// Generate our HTML
@@ -117,7 +118,6 @@ function WRSS_shield( $atts = array(), $content = null, $tag = '' ){
 	$output .= '		height="'.$h.'" '."\n";
 	$output .= '		width="'.$w.'" '."\n";
 	$output .= '		style="cursor: pointer; margin: 0px auto; display: inherit;" />'."\n";
-	//$output .= '	<script defer="defer" src="https://staticcdn.co.nz/embed/embed.js"></script>'."\n";
 
 	$output .= '	<script>'."\n";
 	$output .= '		(function () {'."\n";
@@ -149,10 +149,9 @@ add_shortcode( 'womens_refuge_shield', 'WRSS_shield' );
  * @since    1.0.1
  */
 function wrss_embed_external_script() {
-	//wp_register_script( 'wrss_external_embed', );
-	wp_enqueue_script( 'wrss_external_embed', 'https://staticcdn.co.nz/embed/embed.js'  );
+	wp_enqueue_script( 'WRSS_external_embed', 'https://staticcdn.co.nz/embed/embed.js'  );
 }
-add_action( 'wp_enqueue_scripts', 'wrss_embed_external_script' );
+add_action( 'wp_enqueue_scripts', 'WRSS_embed_external_script' );
 
 /**
  * Add some additional links underneath our plugin description,
@@ -160,17 +159,17 @@ add_action( 'wp_enqueue_scripts', 'wrss_embed_external_script' );
  *
  * @since    1.0.1
  */
-function wrss_defer_embed_script($tag, $handle) {
+function WRSS_defer_embed_script($tag, $handle) {
 	// We want to defer our embed, as it's unlikely the user will ever click the
 	// button before the page has loaded, and there's no point slowing the rendering
 	// for it.
-	if( $handle == 'wrss_external_embed' ){
+	if( $handle == 'WRSS_external_embed' ){
 		return str_ireplace(' src', ' defer src', $tag);
 	}
 	// Not our tag, so we'll return it as we found it.
 	return $tag;
 }
-add_filter('script_loader_tag', 'wrss_defer_embed_script', 10, 2);
+add_filter('script_loader_tag', 'WRSS_defer_embed_script', 10, 2);
 
 /**
  * Add some additional links underneath our plugin description,
@@ -178,14 +177,14 @@ add_filter('script_loader_tag', 'wrss_defer_embed_script', 10, 2);
  *
  * @since    0.0.1
  */
-function wrss_plugin_links( $links_array, $plugin_file_name, $plugin_data, $status ){
+function WRSS_plugin_links( $links_array, $plugin_file_name, $plugin_data, $status ){
 	if( strpos( $plugin_file_name, basename(__FILE__) ) ) {
 		$links_array[] = '<a href="https://shielded.co.nz/" target="_blank" class="dashicons-before dashicons-external">'.__('The Shielded Site Project','WRSS').'</a>';
 		$links_array[] = '<a href="https://womensrefuge.org.nz/" target="_blank" class="dashicons-before dashicons-external">'.__('Women\'s Refuge NZ', 'WRSS').'</a>';
 	}
 	return $links_array;
 }
-add_filter( 'plugin_row_meta', 'wrss_plugin_links', 10, 4 );
+add_filter( 'plugin_row_meta', 'WRSS_plugin_links', 10, 4 );
 
 /**
  * Add a Donation link to the plugin deactivate area.
@@ -193,10 +192,10 @@ add_filter( 'plugin_row_meta', 'wrss_plugin_links', 10, 4 );
  *
  * @since    0.0.1
  */
-function wrss_action_links( $links_array, $plugin_file_name, $plugin_data, $status ){
+function WRSS_action_links( $links_array, $plugin_file_name, $plugin_data, $status ){
 	if( strpos( $plugin_file_name, basename(__FILE__) ) ) {
 		$links_array[] = '<a href="https://womensrefuge.org.nz/make-a-donation/" class="dashicons-before dashicons-money-alt">'.__('Donate to Women\'s Refuge', 'WRSS').'</a>';
 	}
 	return $links_array;
 }
-add_filter( 'plugin_action_links', 'wrss_action_links', 10, 4 );
+add_filter( 'plugin_action_links', 'WRSS_action_links', 10, 4 );

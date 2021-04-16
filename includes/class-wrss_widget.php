@@ -10,7 +10,7 @@
   	// Main constructor
   	public function __construct() {
   		parent::__construct(
-  			'wrss_widget',
+  			'WRSS_widget',
   			__( 'Women\'s Refuge Shielded Site Widget', 'WRSS' ),
   			array(
   				'customize_selective_refresh' => true,
@@ -19,7 +19,11 @@
   		);
   	}
 
-  	// The widget form (for the backend )
+  	/**
+     * The widget form (for the backend )
+     *
+     * @since 0.0.2
+     */
   	public function form( $instance ) {
 
   		// Set widget defaults
@@ -33,7 +37,7 @@
   		echo '	<select class="widefat" id="'.esc_attr( $this->get_field_id( 'icon_size' ) ).'" name= "'.esc_attr( $this->get_field_name( 'icon_size' ) ).'">'."\n";
   		echo '		<option value="large"'.( $icon_size == 'large'?' selected="selected"':'').'>'.__('Large', 'WRSS').'</option>'."\n";
   		echo '		<option value="small"'.( $icon_size == 'small'?' selected="selected"':'').'>'.__('Small', 'WRSS').'</option>'."\n";
-  		echo '		<option value="custom"'.( $icon_size == 'custom'?' selected="selected"':'').'>'.__('Button', 'WRSS').'</option>'."\n";
+  		echo '		<option value="button"'.( $icon_size == 'button'?' selected="selected"':'').'>'.__('Button', 'WRSS').'</option>'."\n";
   		echo '	</select>'."\n";
   		echo '</p>';
 
@@ -49,7 +53,11 @@
 
   	}
 
-  	// Update widget settings
+  	/**
+     * Update widget settings
+     *
+     * @since 0.0.2
+     */
   	public function update( $new_instance, $old_instance ) {
   		$instance = $old_instance;
 
@@ -62,7 +70,11 @@
   		return $instance;
   	}
 
-  	// Display the widget
+  	/**
+     * Display the widget
+     *
+     * @since 0.0.2
+     */
   	public function widget( $args, $instance ) {
   		// WordPress core before_widget hook (always include )
   		echo $args['before_widget'];
@@ -83,20 +95,20 @@
    *
    * @since    0.0.2
    */
-  function register_wrss_widget() {
+  function register_WRSS_widget() {
   	register_widget( 'WRSS_Widget' );
   }
-  add_action( 'widgets_init', 'register_wrss_widget' );
+  add_action( 'widgets_init', 'register_WRSS_widget' );
 
 
   /**
-   * Tiny CSS file - purely to apply the shield logo to the Widget in the
+   * Tiny CSS file - purely to apply the solid shield logo to the Widget in the
    * editor tool.
    *
    * @since    0.0.2
    */
-  function wrss_enqueue_admin_style( $hook ) {
-  	wp_register_style( 'wrss_admin_css', WRSS_URL . '/css/admin.css', false, WRSS_VERSION );
-    wp_enqueue_style( 'wrss_admin_css' );
+  function WRSS_enqueue_admin_style( $hook ) {
+  	wp_register_style( 'WRSS_admin_css', WRSS_URL . '/css/admin.css', false, WRSS_VERSION );
+    wp_enqueue_style( 'WRSS_admin_css' );
   }
-  add_action( 'admin_enqueue_scripts', 'wrss_enqueue_admin_style' );
+  add_action( 'admin_enqueue_scripts', 'WRSS_enqueue_admin_style' );

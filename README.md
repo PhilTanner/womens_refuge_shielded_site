@@ -28,7 +28,7 @@ The plugin provides two options
 
 ### What options are available? ###
 
-You can control to look of the icon by changing the icon_size parameter (valid options: *large* (default), *small*, or *custom*).
+You can control to look of the icon by changing the icon_size parameter (valid options: *large* (default), *small*, or *button*).
 
 For the more technical users, you can also affect the ID of the inserted image using the `element_id` parameter, and the ID of the modal overlay using the `modal_id` parameter.
 
@@ -41,6 +41,17 @@ Yes. The link image is inserted to your site inside a `<div>` element, with a cl
 Yes. **However** you should note that only the last one on the page will activate when you click on it, due to a limitation from the code provided by https://shielded.co.nz
 
 ## Changelog ##
+
+### 1.0.2 ###
+* Multi-lingual setup 
+* Assets created (Banner, Icon, and Screenshots)
+* Tested against 5.7.1
+* SVN config
+
+### 1.0.1 ###
+* Changes requested by WordPress approvals team
+* Enqueue external scripts
+* Stable Tag alignment.
 
 ### 1.0 ###
 * Release to WordPress Plugin repository.

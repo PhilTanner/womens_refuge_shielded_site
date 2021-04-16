@@ -1,10 +1,10 @@
 === Women's Refuge Shielded Site ===
 Contributors: fychan66
 Donate link: https://womensrefuge.org.nz/support-our-work/make-a-donation/
-Tags: charity, womens refuge, shielded site
+Tags: charity, womens refuge, shielded site, new zealand, aotearoa
 Requires at least: 4.7
-Tested up to: 5.7
-Stable tag: 1.0.1
+Tested up to: 5.7.1
+Stable tag: 1.0.2
 Requires PHP: 7.0
 License: Apache 2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -37,11 +37,11 @@ The plugin provides two options
 
 = What options are available? =
 
-You can control to look of the icon by changing the icon_size parameter (valid options: *large* (default), *small*, or *custom*).
+You can control to look of the icon by changing the icon_size parameter (valid options: *large* (default), *small*, or *button*).
 
 For the more technical users, you can also affect the ID of the inserted image using the element_id parameter, and the ID of the modal overlay using the modal_id parameter.
 
-= Can I control the styling =
+= Can I control the styling? =
 
 Yes. The link image is inserted to your site inside a <div> element, with a class of ".wrss_container".
 
@@ -51,10 +51,25 @@ Yes. **However** you should note that only the last one on the page will activat
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is stored in the /assets directory.
-2. This is the second screen shot
+1. Add the shield to your site via a Widget in the Appearance editor
+2. Control the size of the shield icon, and the DOM ID elements of the embedded shield, and the modal popup
+3. Use the size selector to display a smaller shield
+4. The shield can also be displayed as a button
+5. You can also embed the shield as a shortcode if you'd prefer - valid options for the size are "large" (default), "small", and "button"
+6. Users clicking on the shield icon on your site will be displayed the [Shielded Site](https://shielded.co.nz/) in a modal pop-up, allowing them to seek help without leaving a trace in their browser history.
 
 == Changelog ==
+
+= 1.0.2 =
+* Multi-lingual setup 
+* Assets created (Banner, Icon, and Screenshots)
+* Tested against 5.7.1
+* SVN config
+
+= 1.0.1 =
+* Changes requested by WordPress approvals team
+* Enqueue external scripts
+* Stable Tag alignment.
 
 = 1.0 =
 * Release to WordPress Plugin repository.
@@ -67,5 +82,5 @@ Yes. **However** you should note that only the last one on the page will activat
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.0.0 =
 By including the Shielded Site tab on your website, you’ll be helping victims living with domestic violence to safely get help. Women's Refuge invite all New Zealand businesses – or anyone who manages their own website – to get involved.
