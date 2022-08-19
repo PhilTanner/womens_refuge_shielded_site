@@ -3,8 +3,8 @@ Contributors: fychan66
 Donate link: https://womensrefuge.org.nz/support-our-work/make-a-donation/
 Tags: charity, womens refuge, shielded site, new zealand, aotearoa
 Requires at least: 4.7
-Tested up to: 5.7.1
-Stable tag: 1.0.2
+Tested up to: 6.0.1
+Stable tag: 1.0.3
 Requires PHP: 7.0
 License: Apache 2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -60,25 +60,10 @@ Yes. **However** you should note that only the last one on the page will activat
 
 == Changelog ==
 
-= 1.0.2 =
-* Multi-lingual setup 
-* Assets created (Banner, Icon, and Screenshots)
-* Tested against 5.7.1
-* SVN config
-
-= 1.0.1 =
-* Changes requested by WordPress approvals team
-* Enqueue external scripts
-* Stable Tag alignment.
-
-= 1.0 =
-* Release to WordPress Plugin repository.
-
-= 0.0.2 =
-* Extended features to allow a widget instead of just shortcode.
-
-= 0.0.1 =
-* Initial version allowing embedding via shortcode.
+= 1.0.3 =
+* Tested against 6.0.1
+* Deploy script created
+* Changes moved to changelog.md
 
 == Upgrade Notice ==
 

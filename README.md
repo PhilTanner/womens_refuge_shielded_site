@@ -1,6 +1,6 @@
 # Women's Refuge Shielded Site #
 
-Donate link: https://womensrefuge.org.nz/support-our-work/make-a-donation/ 
+Donate link: https://womensrefuge.org.nz/support-our-work/make-a-donation/
 
 Wordpress Plugin to add the NZ Women's Refuge Shielded Site button to your site using the `[womens_refuge_shield]` shortcode or widget.
 
@@ -40,29 +40,7 @@ Yes. The link image is inserted to your site inside a `<div>` element, with a cl
 
 Yes. **However** you should note that only the last one on the page will activate when you click on it, due to a limitation from the code provided by https://shielded.co.nz
 
-## Changelog ##
-
-### 1.0.2 ###
-* Multi-lingual setup 
-* Assets created (Banner, Icon, and Screenshots)
-* Tested against 5.7.1
-* SVN config
-
-### 1.0.1 ###
-* Changes requested by WordPress approvals team
-* Enqueue external scripts
-* Stable Tag alignment.
-
-### 1.0 ###
-* Release to WordPress Plugin repository.
-
-### 0.0.2 ###
-* Extended features to allow a widget instead of just shortcode.
-
-### 0.0.1 ###
-* Initial version allowing embedding via shortcode.
-
 ## Upgrade Notice ##
 
-## 1.0 ##
+### 1.0 ###
 By including the Shielded Site tab on your website, you’ll be helping victims living with domestic violence to safely get help. Women's Refuge invite all New Zealand businesses – or anyone who manages their own website – to get involved.

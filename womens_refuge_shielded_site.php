@@ -12,7 +12,7 @@
  * Plugin Name:       Women's Refuge Shielded Site
  * Plugin URI:        https://github.com/PhilTanner/womens_refuge_shielded_site
  * Description:       Add the NZ Women's Refuge Shielded Site button to your site using the [womens_refuge_shield] shortcode or widget.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Phil Tanner
  * Author URI:        https://twitter.com/Phil_Tanner
  * License:           Apache-2.0
