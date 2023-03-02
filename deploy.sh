@@ -2,9 +2,9 @@
 # A modification of Sal Ferrarello's deploy script as found here: https://github.com/salcode/stop-emails/blob/master/deploy.sh
 
 # main config
-PLUGINSLUG="womens_refuge_shielded_site" # Used for main plugin filename, as well as SVN repo link.
+PLUGINSLUG="womens-refuge-shielded-site" # Used for main plugin filename, as well as SVN repo link.
 CURRENTDIR=`pwd`
-MAINFILE="womens-refuge-shielded-site.php" # this should be the name of your main php file in the wordpress plugin
+MAINFILE="$PLUGINSLUG.php" # this should be the name of your main php file in the wordpress plugin
 
 # git config
 GITPATH="$CURRENTDIR/" # this file should be in the base of your git repository
@@ -78,8 +78,11 @@ git checkout-index -a -f --prefix=$SVNPATH/trunk/
 echo "Ignoring github specific files and deployment script"
 svn propset svn:ignore "deploy.sh
 README.md
+.wordpress-org
+.gitattributes
+.gitignore
 .git
-.gitignore" "$SVNPATH/trunk/"
+.distignore" "$SVNPATH/trunk/"
 
 echo "Changing directory to SVN and committing to trunk"
 cd $SVNPATH/trunk/
