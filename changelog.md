@@ -1,5 +1,10 @@
 # Changelog #
 
+## 1.0.4 ##
+* Tested against WordPress v6.1.1
+* Code updated to align to [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards)
+* Change to screenshot to remove dev site name
+
 ## 1.0.3 ##
 * Tested up to increased to 6.0.1
 * Changes moved to `changelog.md`

@@ -4,7 +4,7 @@
 # main config
 PLUGINSLUG="womens_refuge_shielded_site" # Used for main plugin filename, as well as SVN repo link.
 CURRENTDIR=`pwd`
-MAINFILE="$PLUGINSLUG.php" # this should be the name of your main php file in the wordpress plugin
+MAINFILE="womens-refuge-shielded-site.php" # this should be the name of your main php file in the wordpress plugin
 
 # git config
 GITPATH="$CURRENTDIR/" # this file should be in the base of your git repository

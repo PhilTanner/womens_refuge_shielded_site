@@ -3,8 +3,8 @@ Contributors: fychan66
 Donate link: https://womensrefuge.org.nz/support-our-work/make-a-donation/
 Tags: charity, womens refuge, shielded site, new zealand, aotearoa
 Requires at least: 4.7
-Tested up to: 6.0.1
-Stable tag: 1.0.3
+Tested up to: 6.1.1
+Stable tag: 1.0.4
 Requires PHP: 7.0
 License: Apache 2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -60,10 +60,10 @@ Yes. **However** you should note that only the last one on the page will activat
 
 == Changelog ==
 
-= 1.0.3 =
-* Tested against 6.0.1
-* Deploy script created
-* Changes moved to changelog.md
+= 1.0.4 =
+* Tested against 6.1.1
+* Code updated to align to [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards)
+* Change to screenshot to remove dev site name
 
 == Upgrade Notice ==
 

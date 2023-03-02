@@ -42,5 +42,10 @@ Yes. **However** you should note that only the last one on the page will activat
 
 ## Upgrade Notice ##
 
+### 1.0.4 ###
+* Tested against 6.1.1
+* Code updated to align to [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards)
+* Change to screenshot to remove dev site name
+
 ### 1.0 ###
 By including the Shielded Site tab on your website, you’ll be helping victims living with domestic violence to safely get help. Women's Refuge invite all New Zealand businesses – or anyone who manages their own website – to get involved.

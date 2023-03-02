@@ -15,33 +15,33 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: womens_refuge_shielded_site.php\n"
-"X-Poedit-SearchPath-2: includes/class-wrss_widget.php\n"
+"X-Poedit-SearchPath-2: includes/class-wrss-widget.php\n"
 
-#: includes/class-wrss_widget.php:14
+#: includes/class-wrss-widget.php:14
 msgid "Women's Refuge Shielded Site Widget"
 msgstr "Women's Refuge Shielded Site Widget"
 
-#: includes/class-wrss_widget.php:32
+#: includes/class-wrss-widget.php:32
 msgid "Size"
 msgstr "Size"
 
-#: includes/class-wrss_widget.php:34
+#: includes/class-wrss-widget.php:34
 msgid "Large"
 msgstr "Large"
 
-#: includes/class-wrss_widget.php:35
+#: includes/class-wrss-widget.php:35
 msgid "Small"
 msgstr "Small"
 
-#: includes/class-wrss_widget.php:36
+#: includes/class-wrss-widget.php:36
 msgid "Button"
 msgstr "Button"
 
-#: includes/class-wrss_widget.php:41
+#: includes/class-wrss-widget.php:41
 msgid "Modal ID"
 msgstr "Modal ID"
 
-#: includes/class-wrss_widget.php:46
+#: includes/class-wrss-widget.php:46
 msgid "Element ID"
 msgstr "Element ID"
 
